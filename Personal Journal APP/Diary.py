@@ -1,4 +1,4 @@
-import journal          # retain namespace
+import journal                      # retain namespace
 # from journal import load, save    # get individual entities
 # from journal import *             # import all direct
 
@@ -22,7 +22,7 @@ def run_event_loop():
     # by using import journal I have to use journal.load
     # by using from journal import load, save I have to use just method load or save
 
-    while cmd != 'x':
+    while cmd != 'x' and cmd:
         cmd = input('[L]ist entries, [A]dd an entry, E[x]it: ')
         # setting character rules
         cmd = cmd.lower().strip()
@@ -31,7 +31,7 @@ def run_event_loop():
             list_entries(journal_data)
         elif cmd == 'a':
             add_entry(journal_data)
-        elif cmd != 'x':
+        elif cmd != 'x' and cmd:
             print("Sorry, we don't understand '{}'.".format(cmd))
 
     print('Done, thank you come again :)')
@@ -52,4 +52,8 @@ def add_entry(data):
     # data.append(text)  # append -> adding new item
 
 
-main()
+print("__file__ " + __file__)
+print("__name__ " + __name__)
+
+if __name__ == '__main__':
+    main()
